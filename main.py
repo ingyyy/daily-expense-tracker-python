@@ -12,16 +12,19 @@ print("5. Exit")
 while True:
     choice = input("Enter your choice (1-5): ")
 
-    if choice == 5:
+    if choice == "5":  # حطينا علامات تنصيص هنا
         print("Exiting the Daily Expense Tracker. Goodbye!")
         break
 
-    elif choice == 1:
-        expense = float(input("Enter the expense amount: "))
-        expenses.append(expense)
-        print("Expense added successfully!")
+    elif choice == "1": # وهنا كمان
+        try:
+            expense = float(input("Enter the expense amount: "))
+            expenses.append(expense)
+            print("Expense added successfully!")
+        except ValueError:
+            print("Invalid input! Please enter a number for the expense.")
 
-    elif choice == 2:
+    elif choice == "2": # وكل الباقي بنفس الطريقة
         if len(expenses) == 0:
             print("No expenses recorded yet.")
         else:
@@ -29,7 +32,7 @@ while True:
             for index, expense in enumerate(expenses, 1):
                 print(f"{index}. {expense}")
 
-    elif choice == 3:
+    elif choice == "3":
         if len(expenses) == 0:
             print("No expenses recorded yet.")
         else:
@@ -38,7 +41,7 @@ while True:
             print("Total expense:", total)
             print("Average expense:", average)
 
-    elif choice == 4:
+    elif choice == "4":
         expenses.clear()
         print("All expenses cleared.")
 
